@@ -13,6 +13,11 @@ variable "domain_name" {
   type        = string
 }
 
+variable "alternative_names" {
+  description = "The alternative names to include in the certificate"
+  type = string
+}
+
 variable "route53_zone_id" {
   description = "The Route 53 Hosted Zone ID"
   type        = string
