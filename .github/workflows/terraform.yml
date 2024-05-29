@@ -35,7 +35,6 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
-        working-directory: ./terraform/environments/production
         id: init
         run: terraform init -backend-config "bucket=$BUCKET_TF_STATE"
 
