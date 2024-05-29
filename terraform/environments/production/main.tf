@@ -46,11 +46,11 @@ module "security_groups" {
 }
 
 module "acm" {
-  source          = "../../modules/acm"
-  project_name    = local.project_name
-  environment     = local.environment
-  domain_name     = var.domain_name
-  route53_zone_id = var.route53_zone_id
+  source            = "../../modules/acm"
+  project_name      = local.project_name
+  environment       = local.environment
+  domain_name       = var.domain_name
+  route53_zone_id   = var.route53_zone_id
   alternative_names = var.alternative_names
 }
 

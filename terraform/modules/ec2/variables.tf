@@ -34,6 +34,6 @@ variable "instance_name" {
 }
 
 variable "security-group_id" {
- description = "Security group ID for the EC2 instance"
- type        = string
+  description = "Security group ID for the EC2 instance"
+  type        = string
 }

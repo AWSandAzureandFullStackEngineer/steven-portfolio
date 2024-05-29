@@ -15,7 +15,7 @@ variable "domain_name" {
 
 variable "alternative_names" {
   description = "The alternative names to include in the certificate"
-  type = string
+  type        = string
 }
 
 variable "route53_zone_id" {
