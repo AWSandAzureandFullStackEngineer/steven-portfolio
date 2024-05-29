@@ -1,18 +1,17 @@
+variable "region" {}
 variable "project_name" {}
 variable "environment" {}
-variable "vpc_cidr" {}
-variable "vpc_name" {}
-variable "region" {}
 
-variable "vpc_cidr" {}
+variable "vpc_cider" {}
 variable "public_subnet-az1-cider" {}
 variable "public_subnet-az2-cider" {}
 variable "private-app-subnet-az1-cider" {}
 variable "private-app-subnet-az2-cider" {}
-variable "public_subnet_az1_cidr" {}
-variable "private_data_subnet_az1" {}
-variable "public_subnet_az2_cidr" {}
-variable "private_app_subnet_az1_cidr" {}
-variable "private_app_subnet_az2_cidr" {}
-variable "private_data_subnet_az1_cidr" {}
-variable "private_data_subnet_az2_cidr" {}
+variable "private-db-subnet-az1-cider" {}
+variable "private-db-subnet-az2-cider" {}
+
+variable "sg-name" {}
+
+variable "domain_name" {}
+
+variable "route53_zone_id" {}
