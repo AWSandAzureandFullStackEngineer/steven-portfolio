@@ -44,16 +44,6 @@ jobs:
         working-directory: ./terraform/environments/production
         run: terraform validate
 
-      - name: Terraform Plan
-        id: plan
-        working-directory: ./terraform/environments/production
-        run: terraform plan -no-color -input=false -out planfile
-        continue-on-error: true
-
-      - name: Terraform Plan Status
-        if: steps.plan.outcome == 'failure'
-        run: exit 1
-
       - name: Terraform Apply
         id: apply
         working-directory: ./terraform/environments/production
