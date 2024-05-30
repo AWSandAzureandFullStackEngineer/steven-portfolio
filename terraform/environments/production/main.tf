@@ -7,7 +7,7 @@ locals {
 
 # VPC module
 module "vpc" {
-  source = "../../modules/vpc"
+  source                      = "../../modules/vpc"
   region                      = local.region
   project_name                = local.project_name
   environment                 = local.environment
@@ -21,10 +21,10 @@ module "vpc" {
 }
 
 module "nat-gateway-module" {
-  source       = "../../modules/nat-gateway"
-  region       = local.region
-  project_name = local.project_name
-  environment  = local.environment
+  source                     = "../../modules/nat-gateway"
+  region                     = local.region
+  project_name               = local.project_name
+  environment                = local.environment
   public_subnet-az1_id       = module.vpc.public_subnet_az1_id
   public_subnet-az2_id       = module.vpc.public_subnet_az2_id
   private-app-subnet-az1_id  = module.vpc.private_app_subnet_az1_id
@@ -43,6 +43,17 @@ module "security_groups" {
   sg-name      = var.sg-name
 }
 
+module "alb" {
+  source                = "../../modules/alb"
+  project_name          = local.project_name
+  environment           = local.environment
+  vpc_id                = module.vpc.vpc_id
+  alb_security_group_id = module.security_groups.alb_security_group_id
+  public_subnet_az1_id  = module.vpc.public_subnet_az1_id
+  public_subnet_az2_id  = module.vpc.public_subnet_az2_id
+  certificate_arn       = module.acm.certificate_arn
+  target_type           = "instance"
+}
 
 module "ec2-module" {
   source               = "../../modules/ec2"
