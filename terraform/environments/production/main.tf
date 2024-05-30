@@ -8,7 +8,6 @@ locals {
 # VPC module
 module "vpc" {
   source = "../../modules/vpc"
-
   region                      = local.region
   project_name                = local.project_name
   environment                 = local.environment
@@ -26,7 +25,6 @@ module "nat-gateway-module" {
   region       = local.region
   project_name = local.project_name
   environment  = local.environment
-
   public_subnet-az1_id       = module.vpc.public_subnet_az1_id
   public_subnet-az2_id       = module.vpc.public_subnet_az2_id
   private-app-subnet-az1_id  = module.vpc.private_app_subnet_az1_id
