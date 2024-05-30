@@ -43,15 +43,6 @@ module "security_groups" {
   sg-name      = var.sg-name
 }
 
-module "acm" {
-  source            = "../../modules/acm"
-  project_name      = local.project_name
-  environment       = local.environment
-  domain_name       = var.domain_name
-  route53_zone_id   = var.route53_zone_id
-  alternative_names = var.alternative_names
-}
-
 module "alb" {
   source                = "../../modules/alb"
   project_name          = local.project_name
