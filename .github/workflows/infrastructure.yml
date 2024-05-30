@@ -30,7 +30,7 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init -backend-config "bucket=$BUCKET_TF_STATE"
+        run: terraform init -lock=false
 
       - name: Terraform Format
         id: fmt
