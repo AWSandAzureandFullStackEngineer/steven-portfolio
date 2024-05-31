@@ -21,7 +21,7 @@ const RegistrationForm: React.FC = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8081/register",
+        "http://localhost:8080/register",
         formData
       );
       console.log(response.data);

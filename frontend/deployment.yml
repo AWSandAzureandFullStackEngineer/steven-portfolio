@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: 339713093076.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
+        env:
+        - name: VITE_REACT_APP_API_URL
+          value: "http://engineerscentralhub.tech:8080/register"
+        ports:
+        - containerPort: 5173
