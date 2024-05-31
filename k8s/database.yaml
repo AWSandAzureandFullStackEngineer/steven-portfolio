@@ -13,31 +13,15 @@ spec:
     metadata:
       labels:
         app: postgres
-        spec:
+    spec:
       containers:
       - name: postgres
         image: postgres:16.2
         ports:
         - containerPort: 5432
-        env:
-        - name: POSTGRES_DB
-          valueFrom:
-            secretKeyRef:
-              name: postgres-secret
-              key: POSTGRES_DB
-        - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              name: postgres-secret
-              key: POSTGRES_USER
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: postgres-secret
-              key: POSTGRES_PASSWORD
         volumeMounts:
         - name: postgres-volume
-          mountPath: /var/lib/postgresql/data
+          mountPath: /data/db
       volumes:
       - name: postgres-volume
         persistentVolumeClaim:
@@ -54,7 +38,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /data/postgresql
+    path: /data/db
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
