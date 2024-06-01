@@ -23,7 +23,7 @@ jobs:
         with:
          node-version: "20.x"
 
-      - name: Install Yarn
+      - name: Install yarn
         run: npm install -g yarn
 
       - name: Install frontend dependencies
@@ -100,12 +100,12 @@ jobs:
         with:
           projectBaseDir: backend
           args: >
-            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-            -Dsonar.host.url=${{ secrets.SONAR_URL }}
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-            -Dsonar.sources=.
-            -Dsonar.verbose=true
+            -Dsonar.organization2=${{ secrets.SONAR_ORGANIZATION2 }}
+            -Dsonar.projectKey2=${{ secrets.SONAR_PROJECT_KEY2 }}
+            -Dsonar.host.url2=${{ secrets.SONAR_URL2 }}
+            -Dsonar.login2=${{ secrets.SONAR_TOKEN2 }}
+            -Dsonar.sources2=.
+            -Dsonar.verbose2=true
           
 
   frontend-security:
