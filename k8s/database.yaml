@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
+  namespace: engineer
   labels:
     app: postgres
 spec:
@@ -31,6 +32,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: postgres-pv
+  namespace: engineer
 spec:
   capacity: 
     storage: 1Gi
@@ -44,6 +46,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: postgres-pvc
+  namespace: engineer
 spec: 
   accessModes:  
     - ReadWriteOnce
@@ -56,6 +59,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: postgres-service
+  namespace: engineer
 spec:
   selector:
     app: postgres
