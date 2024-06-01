@@ -271,3 +271,4 @@ jobs:
         with:
           file: k8s/
           args: --severity-threshold=high
+          
