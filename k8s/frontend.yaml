@@ -25,7 +25,7 @@ spec:
         image: steven8519/frontend:latest
         env:
         - name: VITE_REACT_APP_API_URL
-          value: "http://engineerscentralhub.tech:8080/register"
+          value: "http://engineerscentralhub.tech/register"
         ports:
         - containerPort: 80
 ---
