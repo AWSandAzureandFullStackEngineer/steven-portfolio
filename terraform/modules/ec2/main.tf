@@ -8,8 +8,8 @@ resource "aws_instance" "ec2" {
   root_block_device {
     volume_size = 30
   }
-  
-  user_data = file("${path.module}/init_script.py")
+
+  user_data = templatefile("${path.module}/init-tools.py", {})
 
   tags = {
     Name = var.instance_name
